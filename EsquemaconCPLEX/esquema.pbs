@@ -1,0 +1,32 @@
+#!/bin/bash
+#PBS -q inv
+#PBS -lnodes=marte:ppn=1
+#PBS -V
+
+source /etc/profile.d/modules.sh
+
+module load icc/2011.2.137
+module load mkl/2011.2.137
+module load ifort/2011.2.137
+
+# Nos aseguramos que estamos en el directorio
+# desde el que se envio el trabajo con qsub
+
+cd $PBS_O_WORKDIR
+echo "Nodo en el que ha sido planificado el trabajo :"
+cat $PBS_NODEFILE
+
+echo "Ahora ejecutamos las tareas secuenciales..."
+
+./genetico
+
+
+
+
+
+
+
+
+
+
+
